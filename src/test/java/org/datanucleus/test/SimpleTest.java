@@ -3,6 +3,9 @@ package org.datanucleus.test;
 import java.util.*;
 import org.junit.*;
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.metamodel.Attribute;
+import javax.print.Doc;
 
 import static org.junit.Assert.*;
 import mydomain.model.*;
@@ -24,6 +27,7 @@ public class SimpleTest
 
             // [INSERT code here to persist object required for testing]
             tx.commit();
+            assertEquals(Attribute.PersistentAttributeType.EMBEDDED, em.getMetamodel().entity(Document.class).getAttribute("nameObject").getPersistentAttributeType());
         }
         catch (Throwable thr)
         {
