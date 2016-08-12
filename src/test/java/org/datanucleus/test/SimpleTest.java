@@ -27,7 +27,8 @@ public class SimpleTest
 
             // [INSERT code here to persist object required for testing]
             tx.commit();
-            assertEquals(Attribute.PersistentAttributeType.EMBEDDED, em.getMetamodel().entity(Document.class).getAttribute("nameObject").getPersistentAttributeType());
+            assertNotNull(Document_.byteArray);
+            assertNotNull(Document_.wrappedByteArray);
         }
         catch (Throwable thr)
         {

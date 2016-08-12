@@ -15,7 +15,8 @@ import java.io.Serializable;
 public class Document implements Serializable {
 
     private Long id;
-    private NameObject nameObject;
+    private byte[] byteArray;
+    private Byte[] wrappedByteArray;
 
     @Id
     @GeneratedValue
@@ -27,12 +28,20 @@ public class Document implements Serializable {
         this.id = id;
     }
 
-    @Embedded
-    public NameObject getNameObject() {
-        return nameObject;
+    public byte[] getByteArray() {
+        return byteArray;
     }
 
-    public void setNameObject(NameObject nameObject) {
-        this.nameObject = nameObject;
+    public void setByteArray(byte[] byteArray) {
+        this.byteArray = byteArray;
     }
+
+    public Byte[] getWrappedByteArray() {
+        return wrappedByteArray;
+    }
+
+    public void setWrappedByteArray(Byte[] wrappedByteArray) {
+        this.wrappedByteArray = wrappedByteArray;
+    }
+
 }
